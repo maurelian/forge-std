@@ -1761,6 +1761,10 @@ interface Vm is VmSafe {
     /// Sets the *next* call's `msg.sender` to be the input address, and the `tx.origin` to be the second input.
     function prank(address msgSender, address txOrigin) external;
 
+    /// Sets the *next* call's `msg.sender` to be the input address, and the `tx.origin` to be the second input,
+    /// and whether the call should be a delegatecall.
+    function prank(address msgSender, address txOrigin, bool isDelegatecall) external;
+
     /// Sets `block.prevrandao`.
     /// Not available on EVM versions before Paris. Use `difficulty` instead.
     /// If used on unsupported EVM versions it will revert.
